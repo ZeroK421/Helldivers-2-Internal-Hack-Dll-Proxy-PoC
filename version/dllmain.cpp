@@ -14,14 +14,7 @@
 HANDLE hMainThread;
 HMODULE g_hModule;
 
-// Function to initialize and show the console window
 
-
-void DestroyConsole()
-{
-	DestroyWindow(GetConsoleWindow());
-	FreeConsole();
-}
 
 //Check Key Pressed
 bool keyPressed(int vKey)
@@ -29,11 +22,6 @@ bool keyPressed(int vKey)
 	return (GetAsyncKeyState(vKey) & 1);
 }
 
-//Console Menu using checkbox
-struct Checkbox {
-	std::string title;
-	bool checked;
-};
 
 
 DWORD WINAPI Payload(LPVOID lpParam)
@@ -43,8 +31,6 @@ DWORD WINAPI Payload(LPVOID lpParam)
 	if (dllfwd)
 		CloseHandle(dllfwd);
 
-	size_t selectedCheckbox = 0;
-	char userInput;
 
 	HMODULE moduleHandle = nullptr;
 	GameData gData;
